@@ -1,3 +1,14 @@
+// Base Colors
+@blue: rgb(82,155,186);
+@green: rgb(159,202,86);
+@purple: rgb(160,116,196);
+@red: rgb(206,64,69);
+@white: rgb(212,215,214);
+@yellow: rgb(220,205,105);
+
+@background: rgb(21,23,24);
+@text: rgb(212,215,214);
+
 // Sizes
 @font-size: 11px;
 @disclosure-arrow-size: 12px;
@@ -7,15 +18,6 @@
 @component-line-height: 25px;
 @component-border-radius: 2px;
 
-
-// Base Colors
-@blue: rgb(79,153,211);
-@green: rgb(159,202,86);
-@yellow: rgb(220,205,105);
-@red: rgb(206,64,69);
-@purple: rgb(160,116,196);
-@background: rgb(21,23,24);
-@text: #aaa;
 
 @ui-site-color-1: @blue;
 @ui-site-color-2: @green;
@@ -37,10 +39,8 @@
 
 @app-background-color: @background;
 
-
-
 // FONT COLORS
-@text-color: #aaa;
+@text-color: @white;
 @text-color-subtle: #555;
 @text-color-highlight: #fff;
 @text-color-selected: @text-color-highlight;
@@ -65,17 +65,19 @@
 
 
 // TREE VIEW / SIDEBAR
-@tree-view-background-color: rgb(16,17,18);
+@tree-view-background-color: #0F1213;
 @tree-view-border-color: @tool-panel-border-color;
 
 @scrollbar-background-color: rgba(42, 42, 42, 0.5);
 @scrollbar-color: rgba(92, 92, 92, 0.5);
 
+@project-header-bg: #050607;
+
 
 
 // OVERLAYS
-@overlay-background-color: #fff;
-@overlay-border-color: @background-color-highlight;
+@overlay-background-color: @tree-view-background-color;
+@overlay-border-color: @project-header-bg;
 @overlay-text-color: @text-color;
 @overlay-selected-bg: rgba(217,213,206, 0.4);
 @overlay-selected-text: darken(@text-color, 15%);
@@ -129,8 +131,5 @@
 
 @panel-heading-background-color: #43484d;
 @panel-heading-border-color: fadein(@base-border-color, 10%);
-
-@overlay-background-color: #202123;
-@overlay-border-color: @background-color-highlight;
 
 @font-family: 'Lucida Grande', 'Segoe UI', 'Open Sans', sans-serif;
