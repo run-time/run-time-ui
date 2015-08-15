@@ -1,10 +1,18 @@
 // Base Colors
+@black: #050607;
 @blue: rgb(82,155,186);
 @green: rgb(159,202,86);
+@grey-dark: #0F1213;
 @purple: rgb(160,116,196);
 @red: rgb(206,64,69);
 @white: rgb(212,215,214);
 @yellow: rgb(220,205,105);
+
+@btn: lighten(@background, 5%);
+@btn-hover: lighten(@background, 9%);
+
+@overlay-background-color: @grey-dark;
+@overlay-border-color: @black;
 
 @background: rgb(21,23,24);
 @text: rgb(212,215,214);
@@ -65,13 +73,13 @@
 
 
 // TREE VIEW / SIDEBAR
-@tree-view-background-color: #0F1213;
+@tree-view-background-color: @grey-dark;
 @tree-view-border-color: @tool-panel-border-color;
 
 @scrollbar-background-color: rgba(42, 42, 42, 0.5);
 @scrollbar-color: rgba(92, 92, 92, 0.5);
 
-@project-header-bg: #050607;
+@project-header-bg: @black;
 
 
 
