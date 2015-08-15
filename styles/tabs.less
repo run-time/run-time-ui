@@ -8,9 +8,15 @@
 @tab-bar-bottom-border-color: rgb(16,17,18);
 @tab-bar-background-color: rgb(38,43,48);
 
-@tab-height: 40px;
+@tab-height: 60px;
 @tab-top-padding: 0px;
 @tab-bottom-border-height: 0px;
+
+
+// SET TAB Z-INDEX HIGHER THAN PROJECT TITLE
+ul.list-inline.tab-bar.inset-panel {
+  z-index: 2;
+}
 
 tabs-bar, .tab-bar {
   height: @tab-height + @tab-top-padding + @tab-bottom-border-height;
@@ -18,7 +24,7 @@ tabs-bar, .tab-bar {
   padding: 0 10px 0 10px;
   box-sizing: border-box;
   border-bottom: solid 4px @tab-bar-bottom-border-color;
-  // left: 16px;
+  left: 6px;
 
   &:after {
     background: @tab-background-active;
