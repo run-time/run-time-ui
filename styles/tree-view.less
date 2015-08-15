@@ -1,31 +1,123 @@
 @import "ui-variables";
 
+
+atom-panel {
+  &.left {
+    border-right: 1px solid @project-header-bg;
+  }
+}
+
+// LEFT PANE
 .tree-view {
   font-size: @font-size;
   background: @tree-view-background-color !important;
 
-  .selected {
-    // padding: 20px;
-  }
+
+  // SELECTED ITEM
   .selected:before {
     background: rgba(255,255,255, 0.05);
     box-shadow: none;
-    // padding: 20px;
   }
+
+
+  // POSITION CONTAINER BELOW TITLE
+  li.project-root {
+    padding-top: 63px;
+    margin-left: -10px;
+  }
+
+  // PROJECT NAME HEADER
+  li.project-root > .header.list-item {
+    background: @project-header-bg;
+    // border-bottom: solid 1px lighten(@project-header-bg, 10%);
+    cursor: pointer;
+    height: 60px;
+    left: 0;
+    margin: 0;
+    padding: 16px 0px 0px 25px;
+    position: fixed;
+    top: 0;
+    transition: background ease 0.4s;
+    width: 50%;
+    z-index: 1;
+    opacity: 0.95;
+
+    // PROJECT NAME
+    .name.icon.icon-repo {
+      font-size: 14px;
+      font-weight: 100;
+      font-family: 'Raleway';
+      padding: px 0px 0px 0px;
+      color: white;
+
+      // PROJECT ICON
+      &:before {
+        background-image: url('atom://seti-ui/img/site-icon.png');
+        background-repeat: no-repeat;
+        background-size: 20px 20px;
+        content: '';
+        left: -10px;
+        height: 20px;
+        top: 5px;
+        width: 20px;
+      }
+
+    }
+
+    &:before { display: none; }
+    &:hover {
+      background: darken(@tree-view-background-color, 2%);
+    }
+
+  }
+
+  // PROJECT NAME HEADER (SELECTED)
+  li.project-root.selected > .header.list-item {
+
+    &:before {
+      display: none;
+    }
+
+  }
+
+  // HIDE TREE WHEN COLLAPSED
+  .directory.entry.list-nested-item.project-root.selected.collapsed {
+    &::before {
+      display: none;
+    }
+  }
+
 }
 
 
+
+.tree-view .selected:before {
+  background: darken(@tree-view-background-color, 2%);
+  height: 30px;
+  margin-top: -2px;
+}
+
+// SELECTED ITEMS
 .focusable-panel {
+
+  .list-group .selected::before, .list-tree .selected::before {
+    background: darken(@tree-view-background-color, 2%);
+    height: 30px;
+    margin-top: -2px;
+  }
+
   opacity: 1;
-  background: #303030;
   box-shadow: none;
   border: 0;
 
-  &:focus {
-    background: #282828;
+  .list-item {
+    height: 30px;
+  }
 
-    .selected:before {
-      background: rgb(85,181,219);
+  &:focus {
+
+    .list-group .selected::before, .list-tree .selected::before {
+      background: #000;
     }
 
     .selected > .name,
@@ -41,7 +133,8 @@
 .file-list-view, .list-view {
   background: rgb(21,23,24);
   color: #FFF;
-  padding: 10px;
+  // padding: 10px;
+  // height: 20px;
 
   .file.selected {
     .filename {
