@@ -1,30 +1,23 @@
 @modified-icon-width: 8px;
 
-@tab-border: none;
+@tab-highlight-size: 2px; // ACTIVE TAB BORDER
 
-@tab-highlight-color: rgb(79,153,211);
-@tab-background: rgb(30,35,38);
-@tab-background-active: rgb(16,17,18);
-@tab-bar-bottom-border-color: rgb(16,17,18);
-@tab-bar-background-color: rgb(38,43,48);
-
-@tab-height: 60px;
-@tab-top-padding: 0px;
-@tab-bottom-border-height: 0px;
-
+@tab-height: 60px; // TAB HEIGHT
+@tab-top-padding: 0px; // SPACE ABOVE TABS
+@tab-bottom-border-height: 0px; // SPACE BELOW TABS
 
 // SET TAB Z-INDEX HIGHER THAN PROJECT TITLE
 ul.list-inline.tab-bar.inset-panel {
   z-index: 2;
 }
 
+// CONTAINER
 tabs-bar, .tab-bar {
   height: @tab-height + @tab-top-padding + @tab-bottom-border-height;
-  background: @tab-bar-background-color;
+  // background: @tab-bar-background-color;
   padding: 0 10px 0 16px;
-  box-sizing: border-box;
-  border-bottom: solid 4px @tab-bar-bottom-border-color;
-  // left: 6px;
+  // box-sizing: border-box;
+  border-bottom: solid @tab-highlight-size @tab-bar-bottom-border-color;
 
   &:after {
     background: @tab-background-active;
@@ -33,78 +26,69 @@ tabs-bar, .tab-bar {
 
 
   tabs-tab {
-    left: 16px;
+    // left: 16px;
   }
 
   tabs-tab, .tab {
     position: relative;
     top: @tab-top-padding;
     height: @tab-height;
+    background: @tab-background;
     line-height: @tab-height;
     color: @text-color;
-    padding-left: 0;
-    margin-left: 15px;
+    padding-left: 20px;
+    // margin-left: 2px;
+
     border-radius: 0;
     box-shadow: none;
     -webkit-transform: none;
-    transition: color .1s ease-in;
-    box-shadow: none;
-    border-radius: 0;
-    border: none;
-    border-bottom: solid 4px @tab-bar-bottom-border-color;
+    // box-shadow: none;
+    left: -16px;
+    // right: -16px;
+    // border-radius: 0;
+    // border: none;
+    border-right: solid 1px black;
+    border-bottom: solid @tab-highlight-size @tab-bar-bottom-border-color;
+    transition: all 0.5s ease;
 
-    &, &:before {
-      background: @tab-background;
+    // TAB HOVER
+    &:hover {
+      background: lighten(@tab-background, 3%);
+      // border-bottom-color: lighten(@tab-bar-bottom-border-color, 3%);;
     }
 
-    &:before {
-      background: @tab-background;
-      content: '';
-      position: absolute;
-      top: 0;
-      left: -16px;
-      height: @tab-height;
-      width: 16px;
-      border-radius: 0;
-      border-top-right-radius: 0;
-      -webkit-transform: none;
-      border: none;
-      border-bottom: solid 4px @tab-bar-bottom-border-color;
-      border-left: solid 1px @tab-bar-bottom-border-color;
-      box-shadow: none;
+    &:target {
+      background: lighten(@tab-background, 10%);
     }
 
-
+    // CLOSE ICON - DUH
     .close-icon {
       z-index: 3;
       line-height: @tab-height;
       -webkit-transform: none;
       color: @text-color;
       margin-top: -3px;
-
-      &:hover {
-        color: inherit;
-      }
     }
+
+    // MODIFIED TAB
     &.modified:not(:hover) .close-icon {
       top: @tab-height/2 - @modified-icon-width/2 + 1px;
-      right: 14px;
+      right: 13px;
       width: @modified-icon-width;
       height: @modified-icon-width;
     }
 
-    &.modified:hover .close-icon:hover {
+    // MODIFIED TAB HOVER STATE
+    &.modified:hover .close-icon {
       color: @text-color-highlight;
     }
 
-    .title{
+    // NAME OF TAB
+    .title {
       -webkit-transform: none;
       margin-top: -2px;
     }
 
-    &:first-child {
-      margin-left: 0px;
-    }
   }
 
   tabs-tab.active, .tab.active {
@@ -113,7 +97,12 @@ tabs-bar, .tab-bar {
     color: @text-color-highlight;
     box-shadow: none;
     border: none;
-    border-bottom: solid 4px @tab-highlight-color;
+    border-bottom: solid @tab-highlight-size @tab-highlight-color;
+    transition: all 0.5s ease;
+
+    &:hover {
+      cursor: default;
+    }
 
     .title{
       position: relative;
@@ -133,7 +122,7 @@ tabs-bar, .tab-bar {
 
     &:before {
       border: none;
-      border-bottom: solid 4px @tab-highlight-color;
+      border-bottom: solid @tab-highlight-size @tab-highlight-color;
       box-shadow: none;
     }
 
