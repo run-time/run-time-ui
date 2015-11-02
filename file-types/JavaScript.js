@@ -22,7 +22,7 @@ module.exports = function (app) {
 			return count;
 		},
 
-		throw: function(num) {
+		throwErr: function(num) {
 
 			var code = {
 				400 : '400 Bad Request',
@@ -30,10 +30,12 @@ module.exports = function (app) {
 				403 : '403 Forbidden',
 				404 : '404 Not Found',
 				405 : '405 Method Not Allowed',
-				500 : '500 Internal Server Error',
+				500 : '500 Internal Server Error'
 			};
 
-			var err = new Error( code[num] );
+			var Image = require(),
+					async = require(),
+					err = new Error( code[num] );
 			    err.code = num;
 			    err.message = code[num];
 			    err.status = num;
