@@ -1,14 +1,9 @@
 @import "ui-variables";
 
-
 atom-panel {
   &.left {
     border-right: 1px solid @project-header-bg;
   }
-}
-
-.tree-view-scroller {
-  background: @tree-view-background-color !important;
 }
 
 // LEFT PANE
@@ -16,13 +11,11 @@ atom-panel {
   font-size: @font-size;
   background: @tree-view-background-color !important;
 
-
   // SELECTED ITEM
   .selected:before {
     background: rgba(255,255,255, 0.05);
     box-shadow: none;
   }
-
 
   // POSITION CONTAINER BELOW TITLE
   li.project-root {
@@ -33,7 +26,6 @@ atom-panel {
   // PROJECT NAME HEADER
   li.project-root > .header.list-item {
     background: @project-header-bg;
-    // border-bottom: solid 1px lighten(@project-header-bg, 10%);
     cursor: pointer;
     height: 60px;
     left: 0;
@@ -137,8 +129,6 @@ atom-panel {
 .file-list-view, .list-view {
   background: rgb(21,23,24);
   color: #FFF;
-  // padding: 10px;
-  // height: 20px;
 
   .file.selected {
     .filename {
@@ -157,7 +147,6 @@ atom-panel {
   }
 
 }
-
 
 .list-inline tabs-bar.inset-panel, .list-inline.tab-bar.inset-panel {
   background: #262b30;
